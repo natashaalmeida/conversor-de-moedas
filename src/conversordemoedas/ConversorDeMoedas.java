@@ -10,7 +10,7 @@ import java.net.http.HttpResponse;
 import java.util.Map;
 import java.util.Scanner;
 
-public class ConversorDeMoedas  {
+public class ConversorDeMoedas {
     public static void main(String[] args) throws IOException, InterruptedException {
 
         String endereco = "https://v6.exchangerate-api.com/v6/8b7b036d1c08e8236223dd0f/latest/USD";
@@ -25,7 +25,7 @@ public class ConversorDeMoedas  {
         ExchangeRateResponse exchangeResponse = gson.fromJson(json, ExchangeRateResponse.class);
 
         Scanner leitura = new Scanner(System.in);
-        int opcoes =0;
+        int opcoes = 0;
         String textoInicial = "Digite o valor que deseja converter:";
 
         while (opcoes <= 7) {
@@ -51,16 +51,14 @@ public class ConversorDeMoedas  {
                 double valorConvertido = valor1 * taxaARS;
                 System.out.println("Valor de " + valor1 + " [USD]  corresponde ao valor final de  =>>> " + valorConvertido + " [ARG]");
 
-            }
-            if (digito == 2) {
+            }if (digito == 2) {
                 System.out.println("Digite o valor que deseja converter");
                 double valorARS = leitura.nextDouble();
                 double taxaUSD_ARS = exchangeResponse.conversion_rates.get("ARS");
                 double valorConvertidoUSD = valorARS / taxaUSD_ARS;
                 System.out.printf("Valor de %.2f [ARS] corresponde ao valor final de =>>> %.2f [USD]%n", valorARS, valorConvertidoUSD);
 
-            }
-            if (digito == 3) {
+            }if (digito == 3) {
 
                 System.out.println("Digite o valor que deseja converter:");
                 double valorUSD = leitura.nextDouble();
@@ -68,16 +66,14 @@ public class ConversorDeMoedas  {
                 double valorConvertido3 = valorUSD * taxaBRL;
                 System.out.println("Valor de " + valorUSD + " [USD]  corresponde ao valor final de  =>>> " + valorConvertido3 + " [BRL]");
 
-            }
-            if (digito == 4) {
+            }if (digito == 4) {
                 System.out.println("Digite o valor que deseja converter:");
                 double valorBRL2 = leitura.nextDouble();
                 double taxaBRL_USD = exchangeResponse.conversion_rates.get("BRL");
                 double valorConvertido4 = valorBRL2 / taxaBRL_USD;
                 System.out.println("Valor de " + valorBRL2 + " [BRL]  corresponde ao valor final de  =>>> " + valorConvertido4 + " [USD]");
 
-            }
-            if (digito == 5) {
+            }if (digito == 5) {
                 System.out.println(textoInicial);
                 double valorUSD5 = leitura.nextDouble();
                 double valorColombia = exchangeResponse.conversion_rates.get("COP");
@@ -90,20 +86,16 @@ public class ConversorDeMoedas  {
                 double valorUsd6 = exchangeResponse.conversion_rates.get("COP");
                 double valorConvertido6 = valorCOP / valorUsd6;
                 System.out.println("Valor de " + valorCOP + " [COP]  corresponde ao valor final de  =>>> " + valorConvertido6 + " [USD]");
-            }else if (digito == 7 ){
+            } else if (digito == 7) {
                 System.out.println("Programa finalizado com sucesso!");
                 break;
             }
 
-            if (digito == 0 || digito > 7 ) {
+            if (digito == 0 || digito > 7) {
                 System.out.println("Opção inválido!");
             }
-
         }
-
-
-        }
-
+    }
 
 
     public static class ExchangeRateResponse {
