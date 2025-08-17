@@ -30,4 +30,4 @@ Bem-vindo ao **Conversor de Moedas**, um projeto simples em Java que permite con
 1. Clone o repositório:
 
 ```bash
-git clone (https://github.com/natashaalmeida/conversor-de-moedas.git)
+git clone https://github.com/natashaalmeida/conversor-de-moedas.git
